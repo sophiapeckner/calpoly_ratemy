@@ -13,7 +13,6 @@ export const Routes1 = () => {
     <div>
       <NavBar />
       <Routes>
-        <Route exact path="/CommentPage" element={CommentPage()}/>
         <Route exact path="/Home" element={Home()}/>
         <Route exact path="/Organizations" element={Organizations()} />
         <Route exact path="/Events" element={Events()}/>
