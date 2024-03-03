@@ -1,10 +1,9 @@
 import React from "react";
-import NavBar from "./navbar/navbar";
+import NavBar from "./components/navbar";
 import { Route, Routes } from "react-router-dom";
 import CreateAccount from "./signUp/createAccount";
 import Login from "./login/login";
 import Organizations from "./organizations/organizations";
-import Events from "./events/events";
 
 export const Routes1 = () => {
   return (

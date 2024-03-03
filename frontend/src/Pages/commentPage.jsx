@@ -1,6 +1,6 @@
 import "./comment.css"
 
-export default function Comment () {
+export default function CommentPage () {
     return (
         <div className="comment">
             <div className="commentBody">
