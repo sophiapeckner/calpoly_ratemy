@@ -5,7 +5,7 @@
     flex-direction: column;
     border: 1px solid black;
     border-radius: 15px;
-    background-color: #c47bc3;
+    background-color: #fff7e1;
 }
 .orgInfo {
     padding: 2px 16px;
@@ -15,7 +15,7 @@
     line-height: 25px;
     font-family: 'Merriweather', serif;
     font-weight: 300;
-    color: #46374d;
+    color: black;
     margin-top: 1px;
     overflow: hidden;
     text-overflow: ellipsis;

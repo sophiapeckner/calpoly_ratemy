@@ -1,5 +1,4 @@
 import "./organization.css"
-import StarRating from "../starRating/starRating"
 
 export default function Organization () {
     return (
@@ -15,7 +14,6 @@ export default function Organization () {
                     Description of Organization
                 </div>
                 <div className="orgRating">
-                    <StarRating />
                 </div>
             </div>
             

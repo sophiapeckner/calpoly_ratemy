@@ -1,5 +1,5 @@
 .topNav {
-    background-color: #ecf8f7;
+    background-color: #003831;
     width: 100%;
     position: sticky;
     align-items: center;
@@ -10,6 +10,14 @@
 
 .topCenter {
     flex: 6;
+    color: #FFE395;
+}
+.topRight, .topLeft{
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFE395;
 }
 
 .topNavList {
