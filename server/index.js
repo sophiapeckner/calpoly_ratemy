@@ -50,15 +50,19 @@ app.get("/organizations", async (req, res) => {
   }
 });
 
-// app.get("/calpoly/organizations", async (req, res) => {
-//   let data = await fetch(
-//     "https://now.calpoly.edu/api/discovery/search/organizations?orderBy%5B0%5D=UpperName%20asc&top=455&filter=&query=&skip=0"
-//   );
-
-//   data = await data.json();
-
-//   res.json(data);
-// });
+// endpoint to route to each organizations individual page
+app.get("/organizations/:id", async (req, res) => {
+  try {
+    const organization = await OrganizationModel.findById(req.params.id);
+    if (!organization) {
+      return res.status(404).json({ message: "Organization not found" });
+    }
+    res.json(organization);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
 
 async function fetchAndInsertOrganizations() {
   try {
