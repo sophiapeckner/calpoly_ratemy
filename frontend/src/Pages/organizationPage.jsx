@@ -3,7 +3,7 @@ import styles from "./organizationPage.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export default function Organizations() {
   const [organizations, setOrganizations] = useState([]);
@@ -36,8 +36,20 @@ export default function Organizations() {
                   {org.ShortName}
                 </h6>
                 <p className="card-text">{org.Summary}</p>
-                {/* <a href="#" className="card-link">Card Link</a> */}
-                <Link className="card-link" to={`/organizations/${org._id}`}>Learn More</Link>
+
+                {org.Rating !== null ? (
+                  <h6 className="card-subtitle mb-2 text-muted">
+                    Rating: {org.Rating}
+                  </h6>
+                ) : (
+                  <h6 className="card-subtitle mb-2 text-muted">
+                    No Ratings Yet!
+                  </h6>
+                )}
+
+                <Link className="card-link" to={`/organizations/${org._id}`}>
+                  Learn More
+                </Link>
               </div>
             </div>
           </div>
