@@ -11,9 +11,6 @@ function App() {
     <div className="App">
       <NavBar/>
       <CreateAccount/>
-      
-      
-
     </div>
   );
 }

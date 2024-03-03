@@ -12,17 +12,19 @@ app.use(
 );
 
 mongoose.connect(
- "mongodb+srv://SumedhaKun:password1234@register.at3upxb.mongodb.net/"
+ "mongodb://127.0.0.1:27017/reviewer"
 );
 
 app.post("/login", (req, res) => {
-  const { email, psw } = req.body;
-  UserModel.findOne({ email: email, password: psw }).then((user) => {
+  const { email, password } = req.body;
+  UserModel.findOne({ email: email}).then((user) => {
     if (user) {
-      if (user.password === password) {
+      if (user.password == password) {
         res.json("success");
       } else {
-        res.json("fail");
+        console.log(user.password)
+        console.log(psw)
+        res.json("wrong password");
       }
     }
   });
