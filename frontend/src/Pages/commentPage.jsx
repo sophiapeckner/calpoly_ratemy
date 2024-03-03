@@ -1,6 +1,5 @@
 
 import "./commentPage.css"
-import StarRating from "../components/starRating"
 import { useState } from "react"
 import axios from "axios"
 
