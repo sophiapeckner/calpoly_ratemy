@@ -1,5 +1,5 @@
-import "./events.css"
-import Event from "../event/event"
+import "./eventPage.css"
+import Event from "../components/event"
 
 export default function Events() {
     return (
