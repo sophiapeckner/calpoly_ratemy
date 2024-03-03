@@ -50,6 +50,24 @@ app.get("/organizations", async (req, res) => {
   }
 });
 
+app.patch("/updateOrganization/:orgId", async (req,res)=>{
+  try{
+   const orgId = req.params.orgId;
+   const comment  = req.body;
+   console.log(comment)
+   const org=await OrganizationModel.findOneAndUpdate(
+     {Id: orgId},
+     {$push: { Comments: comment} },
+     {new: true, useFindAndModify: false}
+   );
+   if (!org) {
+     return res.status(404).json({ message: 'Org not found' });
+   }
+   return res.json(org);
+  } catch{}
+ });
+ 
+ 
 // app.get("/calpoly/organizations", async (req, res) => {
 //   let data = await fetch(
 //     "https://now.calpoly.edu/api/discovery/search/organizations?orderBy%5B0%5D=UpperName%20asc&top=455&filter=&query=&skip=0"
