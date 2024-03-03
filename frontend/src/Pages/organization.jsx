@@ -24,7 +24,7 @@ export default function Organization() {
   return (
     <div>
       <h1>{organization.Name}</h1>
-      <CommentPage></CommentPage>
+      <CommentPage id={organization.Id}></CommentPage>
       {organization.Comments.map((comment) => (
         <div>
           <p>{comment.Comment}</p>
