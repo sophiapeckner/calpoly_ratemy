@@ -5,6 +5,7 @@ import Organizations from "./Pages/organizationPage";
 //import Login from "./login/login";
 //import CreateAccount from "./signUp/createAccount";
 //import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Events from "./events/events";
 
 function App() {
   return (

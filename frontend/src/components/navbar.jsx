@@ -8,14 +8,14 @@ export default function NavBar () {
             <div className="topLeft"></div>
             <div className="topCenter">
                 <ul className="topNavList">
-                    <li className="navListItem Org"><Link to="/Organizations">Organizations</Link></li>
-                    <li className="navListItem Events">Events</li>
+                    <li className="navListItem Org"><Link className="link" to="/Organizations">Organizations</Link></li>
+                    <li className="navListItem Events"><Link className="link" to="/Events">Events</Link></li>
                 </ul>
             </div>
             <div className="topRight">
                 <ul className="topList">
-                    <li className="navListItem Login"><Link to='/Login'>Login</Link></li>
-                    <li className="navListItem SignUp"><Link to="/CreateAccount">Sign Up</Link></li>
+                    <li className="navListItem Login"><Link className="link" to='/Login'>Login</Link></li>
+                    <li className="navListItem SignUp"><Link className="link" to="/CreateAccount">Sign Up</Link></li>
                 </ul>
             </div>
         </div>

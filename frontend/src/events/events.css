@@ -1,0 +1,9 @@
+.events {
+    flex: 10;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.eventsPage {
+    background-color: #FFE395;
+}
