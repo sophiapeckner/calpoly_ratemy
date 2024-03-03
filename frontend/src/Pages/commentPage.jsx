@@ -2,6 +2,7 @@
 import "./commentPage.css"
 import StarRating from "../components/starRating"
 import { useState } from "react"
+import axios from "axios"
 
 export default function CommentPage () {
     const [rate,setRate]=useState()
@@ -10,6 +11,8 @@ export default function CommentPage () {
     const handleSubmit=(e)=>{
         console.log("rating: "+rate)
         console.log("comment: "+commentValue)
+
+        let res= axios.patch("http://localhost:3001/updateOrganization/324513",{Comment:commentValue,Rating:rate}).then(function (response) { console.log(response);})
     }
     return (
         <div className="comment">
