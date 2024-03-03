@@ -12,7 +12,7 @@ app.use(
 );
 
 mongoose.connect(
- "mongodb://127.0.0.1:27017/reviewer"
+ "mongodb+srv://user:password1234@register.at3upxb.mongodb.net/reviewer"
 );
 
 app.post("/login", (req, res) => {
