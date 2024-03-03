@@ -2,7 +2,9 @@ import "./commentPage.css";
 import { useState } from "react";
 import axios from "axios";
 
-export default function CommentPage() {
+// export default function CommentPage() {
+const CommentPage = (props) => {
+  const { id } = props;
   const [rate, setRate] = useState();
   const [commentValue, setCommentValue] = useState();
 
@@ -11,7 +13,7 @@ export default function CommentPage() {
     console.log("comment: " + commentValue);
 
     let res = axios
-      .patch("http://localhost:3001/updateOrganization/324513", {
+      .patch(`http://localhost:3001/updateOrganization/${id}`, {
         Comment: commentValue,
         Rating: rate,
       })
@@ -43,4 +45,6 @@ export default function CommentPage() {
       </div>
     </div>
   );
-}
+};
+
+export default CommentPage;
