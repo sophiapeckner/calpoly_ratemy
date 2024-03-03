@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "./components/navbar";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import CreateAccount from "./Pages/createAccount"
 import Login from "./Pages/login";
 import Organizations from "./Pages/organizationPage";
@@ -17,6 +17,7 @@ export const Routes1 = () => {
         <Route exact path="/Events" element={Events()}/>
         <Route exact path="/CreateAccount" element={CreateAccount()} />
         <Route exact path="/Login" element={Login()} />
+        <Route path="/" element={<Navigate to="/CreateAccount" />} />
       </Routes>
     </div>
   );
