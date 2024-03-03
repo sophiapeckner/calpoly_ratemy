@@ -2,9 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const UserModel = require("./models/User");
+const OrganizationModel = require("./models/Organization");
 
 const app = express();
+
 app.use(express.json());
+
 app.use(
   cors({
     origin: "http://localhost:3000",
@@ -12,38 +15,72 @@ app.use(
 );
 
 mongoose.connect(
- "mongodb+srv://user:password1234@register.at3upxb.mongodb.net/reviewer"
+  "mongodb+srv://user:password1234@register.at3upxb.mongodb.net/reviewer"
 );
 
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
-  UserModel.findOne({ email: email}).then((user) => {
+  UserModel.findOne({ email: email }).then((user) => {
     if (user) {
       if (user.password == password) {
         res.json("success");
       } else {
-        console.log(user.password)
-        console.log(psw)
+        console.log(user.password);
+        console.log(psw);
         res.json("wrong password");
       }
     }
   });
 });
+
 app.post("/register", (req, res) => {
   UserModel.create(req.body)
     .then((users) => res.json(users))
     .catch((err) => res.json(err));
 });
+
+async function fetchAndInsertOrganizations() {
+  try {
+    // Check if the collection is empty
+    // only insert data if collection is empty
+    const count = await OrganizationModel.countDocuments();
+    if (count === 0) {
+      const organizations = await fetchOrganizationsFromAPI();
+      await OrganizationModel.insertMany(organizations);
+      console.log("Organizations inserted into database!");
+    } else {
+      console.log("Organizations collection is populated. Skipping insertion");
+    }
+  } catch (error) {
+    console.error("Error: ", error.message);
+  }
+}
+
+async function fetchOrganizationsFromAPI() {
+  try {
+    let response = await fetch(
+      "https://now.calpoly.edu/api/discovery/search/organizations?orderBy%5B0%5D=UpperName%20asc&top=455&filter=&query=&skip=0"
+    );
+    let data = await response.json();
+    return data["value"];
+  } catch (error) {
+    console.error("Error fetching organizations: ", error.message);
+    return [];
+  }
+}
+
+fetchAndInsertOrganizations();
+
 app.listen(3001, () => {
   console.log("server running");
 });
 
-app.get("/calpoly/organizations", async (req, res) => {
-  let data = await fetch(
-    "https://now.calpoly.edu/api/discovery/search/organizations?orderBy%5B0%5D=UpperName%20asc&top=455&filter=&query=&skip=0"
-  );
+// app.get("/calpoly/organizations", async (req, res) => {
+//   let data = await fetch(
+//     "https://now.calpoly.edu/api/discovery/search/organizations?orderBy%5B0%5D=UpperName%20asc&top=455&filter=&query=&skip=0"
+//   );
 
-  data = await data.json();
+//   data = await data.json();
 
-  res.json(data);
-});
+//   res.json(data);
+// });
