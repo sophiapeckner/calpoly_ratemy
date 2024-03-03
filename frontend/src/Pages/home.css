@@ -1,0 +1,20 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 50px);
+    background-color: #FFE395;
+}
+
+.homeImage {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.homeTitle {
+    text-align: center;
+    font-family: 'Meriweather', serif;
+    font-size: 40px;
+}
