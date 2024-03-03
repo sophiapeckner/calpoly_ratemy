@@ -1,0 +1,28 @@
+.topNav {
+    background-color: #ecf8f7;
+    width: 100%;
+    position: sticky;
+    align-items: center;
+    display: flex;
+    height: 50px;
+    z-index: 100;
+}
+
+.topCenter {
+    flex: 6;
+}
+
+.topNavList {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navListItem {
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+}
