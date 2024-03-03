@@ -39,6 +39,27 @@ app.post("/register", (req, res) => {
     .catch((err) => res.json(err));
 });
 
+// endpoint to fetch all organizations stored in MongoDB
+app.get("/organizations", async (req, res) => {
+  try {
+    const organizations = await OrganizationModel.find();
+    res.json(organizations);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+// app.get("/calpoly/organizations", async (req, res) => {
+//   let data = await fetch(
+//     "https://now.calpoly.edu/api/discovery/search/organizations?orderBy%5B0%5D=UpperName%20asc&top=455&filter=&query=&skip=0"
+//   );
+
+//   data = await data.json();
+
+//   res.json(data);
+// });
+
 async function fetchAndInsertOrganizations() {
   try {
     // Check if the collection is empty
@@ -74,13 +95,3 @@ fetchAndInsertOrganizations();
 app.listen(3001, () => {
   console.log("server running");
 });
-
-// app.get("/calpoly/organizations", async (req, res) => {
-//   let data = await fetch(
-//     "https://now.calpoly.edu/api/discovery/search/organizations?orderBy%5B0%5D=UpperName%20asc&top=455&filter=&query=&skip=0"
-//   );
-
-//   data = await data.json();
-
-//   res.json(data);
-// });
