@@ -1,0 +1,43 @@
+.org {
+    width: 23%;
+    margin: 5px 5px 15px 15px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: #c47bc3;
+}
+.orgInfo {
+    padding: 2px 16px;
+}
+.orgDesc {
+    font-size: 15px;
+    line-height: 25px;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    color: #46374d;
+    margin-top: 1px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.orgImage {
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 0px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.orgTitle {
+    font-family: 'Merriweather', serif;
+    font-size: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
