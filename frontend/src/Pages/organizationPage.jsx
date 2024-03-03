@@ -1,5 +1,5 @@
-import "./organizations.css"
-import Organization from "../organization/organization";
+import "./organizationPage.css"
+import Organization from "../components/organization";
 
 export default function Organizations () {
     return (
